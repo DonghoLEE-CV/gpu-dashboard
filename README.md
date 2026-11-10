@@ -19,7 +19,7 @@ GitHub Pages로 호스팅, 연구실 Windows PC에서 `run_collector.sh` 루프�
 ### 1. 수집용 PC에 레포 클론
 
 ```bash
-git clone https://github.com/LeeDongho-ISPL/gpu-dashboard.git
+git clone https://github.com/DonghoLEE-CV/gpu-dashboard.git
 cd gpu-dashboard
 ```
 
