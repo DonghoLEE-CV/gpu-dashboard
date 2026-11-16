@@ -163,6 +163,9 @@ def main():
         "source": SRC,
         "items": sorted(auto + manual, key=lambda x: x.get("ddl", "9999-99-99")),
     }
+    # 수동 조사 날짜는 사람이 갱신하는 값이므로 그대로 보존
+    if old.get("manual_checked"):
+        data["manual_checked"] = old["manual_checked"]
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"OK: auto {len(auto)}건 + manual {len(manual)}건 → {OUT}")
 
