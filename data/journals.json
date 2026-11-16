@@ -1,0 +1,623 @@
+{
+  "updated": "2026-11-16",
+  "jcr": "JCR 2026년 6월판(2025 JIF)",
+  "journals": [
+    {
+      "ab": "TPAMI",
+      "key": "tpami",
+      "full": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "pub": "IEEE Computer Society",
+      "q": "Q1",
+      "jif": "20.4",
+      "guide": "https://www.computer.org/csdl/journal/tp/write-for-us/15083",
+      "tpl": "https://template-selector.ieee.org/",
+      "topics": [
+        "gs",
+        "sr",
+        "ml"
+      ],
+      "q_verified": true,
+      "jif_year": "2025",
+      "q_cats": [
+        {
+          "cat": "Computer Science, Artificial Intelligence",
+          "q": "Q1",
+          "rank": "#4"
+        },
+        {
+          "cat": "Engineering, Electrical & Electronic",
+          "q": "Q1",
+          "rank": "#4"
+        }
+      ],
+      "q_src": "https://innovate.ieee.org/ieee-journals-continue-to-excel-in-citation-rankings/"
+    },
+    {
+      "ab": "TIP",
+      "key": "tip",
+      "full": "IEEE Transactions on Image Processing",
+      "pub": "IEEE Signal Processing Society",
+      "q": "Q1",
+      "jif": "15.3",
+      "guide": "https://signalprocessingsociety.org/publications-resources/information-authors",
+      "tpl": "https://template-selector.ieee.org/",
+      "topics": [
+        "sr",
+        "codec",
+        "gs"
+      ],
+      "q_verified": true,
+      "jif_year": "2025",
+      "q_cats": [
+        {
+          "cat": "Engineering, Electrical & Electronic",
+          "q": "Q1",
+          "rank": "#8"
+        }
+      ],
+      "q_src": "https://innovate.ieee.org/ieee-journals-continue-to-excel-in-citation-rankings/"
+    },
+    {
+      "ab": "TCSVT",
+      "key": "tcsvt",
+      "full": "IEEE Transactions on Circuits and Systems for Video Technology",
+      "pub": "IEEE Circuits and Systems Society",
+      "q": "Q1",
+      "jif": "10.8",
+      "guide": "https://ieee-cas.org/publication/tcsvt/guidelines-authors",
+      "tpl": "https://template-selector.ieee.org/",
+      "topics": [
+        "codec",
+        "sr",
+        "gs"
+      ],
+      "q_verified": true,
+      "jif_year": "2025",
+      "q_cats": [
+        {
+          "cat": "Engineering, Electrical & Electronic",
+          "q": "Q1",
+          "rank": "#13"
+        }
+      ],
+      "q_src": "https://innovate.ieee.org/ieee-journals-continue-to-excel-in-citation-rankings/"
+    },
+    {
+      "ab": "T-IV",
+      "key": "tiv",
+      "full": "IEEE Transactions on Intelligent Vehicles",
+      "pub": "IEEE Intelligent Transportation Systems Society",
+      "q": null,
+      "jif": null,
+      "guide": "https://ieee-itss.org/pub/t-iv/author/",
+      "tpl": "https://template-selector.ieee.org/",
+      "topics": [],
+      "q_verified": false,
+      "jif_year": null
+    },
+    {
+      "ab": "TMM",
+      "key": "tmm",
+      "full": "IEEE Transactions on Multimedia",
+      "pub": "IEEE Signal Processing Society",
+      "q": "Q1",
+      "jif": "9.9",
+      "guide": "https://signalprocessingsociety.org/publications-resources/information-tmm-authors",
+      "tpl": "https://template-selector.ieee.org/",
+      "topics": [
+        "codec",
+        "gs",
+        "sr"
+      ],
+      "q_verified": true,
+      "jif_year": "2025",
+      "q_cats": [
+        {
+          "cat": "Telecommunications",
+          "q": "Q1",
+          "rank": "#6"
+        }
+      ],
+      "q_src": "https://innovate.ieee.org/ieee-journals-continue-to-excel-in-citation-rankings/"
+    },
+    {
+      "ab": "TVCG",
+      "key": "tvcg",
+      "full": "IEEE Transactions on Visualization and Computer Graphics",
+      "pub": "IEEE Computer Society",
+      "q": "Q1",
+      "jif": "6.8",
+      "guide": "https://www.computer.org/csdl/journal/tg/write-for-us/15094",
+      "tpl": "https://template-selector.ieee.org/",
+      "topics": [
+        "gs"
+      ],
+      "q_verified": false,
+      "jif_year": "2025"
+    },
+    {
+      "ab": "ACM TOG",
+      "key": "tog",
+      "full": "ACM Transactions on Graphics",
+      "pub": "ACM",
+      "q": "Q1",
+      "jif": "13.0",
+      "guide": "https://dl.acm.org/journal/tog/author-guidelines",
+      "tpl": "https://www.acm.org/publications/proceedings-template",
+      "topics": [
+        "gs"
+      ],
+      "q_verified": true,
+      "jif_year": "2025",
+      "q_cats": [
+        {
+          "cat": "Computer Science, Software Engineering",
+          "q": "Q1",
+          "rank": "#2"
+        }
+      ],
+      "q_src": "https://www.acm.org/media-center/2026/july/impact-factors-2026"
+    },
+    {
+      "ab": "IJCV",
+      "key": "ijcv",
+      "full": "International Journal of Computer Vision",
+      "pub": "Springer",
+      "q": "Q1",
+      "jif": "10.3",
+      "guide": "https://link.springer.com/journal/11263/submission-guidelines",
+      "tpl": "https://www.springernature.com/gp/authors/campaigns/latex-author-support",
+      "topics": [
+        "gs",
+        "sr"
+      ],
+      "q_verified": false,
+      "jif_year": "2025"
+    },
+    {
+      "ab": "PR",
+      "key": "pr",
+      "full": "Pattern Recognition",
+      "pub": "Elsevier",
+      "q": "Q1",
+      "jif": "9.1",
+      "guide": "https://www.sciencedirect.com/journal/pattern-recognition/publish/guide-for-authors",
+      "tpl": "https://www.elsevier.com/researcher/author/policies-and-guidelines/latex-instructions",
+      "topics": [
+        "sr"
+      ],
+      "q_verified": false,
+      "jif_year": null
+    },
+    {
+      "ab": "Mathematics",
+      "key": "mathematics",
+      "full": "Mathematics",
+      "pub": "MDPI",
+      "q": "Q1",
+      "jif": "2.3",
+      "guide": "https://www.mdpi.com/journal/mathematics/instructions",
+      "tpl": "https://www.mdpi.com/authors/layout",
+      "topics": [
+        "sr"
+      ],
+      "q_verified": true,
+      "jif_year": "2025",
+      "q_cats": [
+        {
+          "cat": "Mathematics",
+          "q": "Q1",
+          "rank": null
+        }
+      ],
+      "q_src": "https://www.mdpi.com/journal/mathematics/stats"
+    },
+    {
+      "ab": "Remote Sensing",
+      "key": "remotesensing",
+      "full": "Remote Sensing",
+      "pub": "MDPI",
+      "q": "Q1",
+      "jif": "4.3",
+      "guide": "https://www.mdpi.com/journal/remotesensing/instructions",
+      "tpl": "https://www.mdpi.com/authors/layout",
+      "topics": [
+        "gs",
+        "sr"
+      ],
+      "q_verified": true,
+      "jif_year": "2025",
+      "q_cats": [
+        {
+          "cat": "Geosciences, Multidisciplinary",
+          "q": "Q1",
+          "rank": null
+        },
+        {
+          "cat": "Remote Sensing",
+          "q": "Q2",
+          "rank": null
+        },
+        {
+          "cat": "Environmental Sciences",
+          "q": "Q2",
+          "rank": null
+        },
+        {
+          "cat": "Imaging Science & Photographic Technology",
+          "q": "Q2",
+          "rank": null
+        }
+      ],
+      "q_src": "https://www.mdpi.com/journal/remotesensing/stats"
+    },
+    {
+      "ab": "IEEE Access",
+      "key": "access",
+      "full": "IEEE Access",
+      "pub": "IEEE",
+      "q": "Q2",
+      "jif": "4.2",
+      "guide": "https://ieeeaccess.ieee.org/authors/submission-guidelines/",
+      "tpl": "https://template-selector.ieee.org/",
+      "topics": [
+        "gs",
+        "sr",
+        "codec"
+      ],
+      "q_verified": false,
+      "jif_year": "2025"
+    },
+    {
+      "ab": "CVIU",
+      "key": "cviu",
+      "full": "Computer Vision and Image Understanding",
+      "pub": "Elsevier",
+      "q": "Q2",
+      "jif": "3.6",
+      "guide": "https://www.sciencedirect.com/journal/computer-vision-and-image-understanding/publish/guide-for-authors",
+      "tpl": "https://www.elsevier.com/researcher/author/policies-and-guidelines/latex-instructions",
+      "topics": [
+        "gs",
+        "sr"
+      ],
+      "q_verified": false,
+      "jif_year": null
+    },
+    {
+      "ab": "SP:IC",
+      "key": "spic",
+      "full": "Signal Processing: Image Communication",
+      "pub": "Elsevier",
+      "q": "Q2",
+      "jif": "2.1",
+      "guide": "https://www.sciencedirect.com/journal/signal-processing-image-communication/publish/guide-for-authors",
+      "tpl": "https://www.elsevier.com/researcher/author/policies-and-guidelines/latex-instructions",
+      "topics": [
+        "codec",
+        "sr"
+      ],
+      "q_verified": false,
+      "jif_year": null
+    },
+    {
+      "ab": "Sensors",
+      "key": "sensors",
+      "full": "Sensors",
+      "pub": "MDPI",
+      "q": "Q2",
+      "jif": "4.0",
+      "guide": "https://www.mdpi.com/journal/sensors/instructions",
+      "tpl": "https://www.mdpi.com/authors/layout",
+      "topics": [
+        "gs"
+      ],
+      "q_verified": true,
+      "jif_year": "2025",
+      "q_cats": [
+        {
+          "cat": "Instruments & Instrumentation",
+          "q": "Q2",
+          "rank": null
+        },
+        {
+          "cat": "Chemistry, Analytical",
+          "q": "Q2",
+          "rank": null
+        },
+        {
+          "cat": "Engineering, Electrical & Electronic",
+          "q": "Q2",
+          "rank": null
+        }
+      ],
+      "q_src": "https://www.mdpi.com/journal/sensors/stats"
+    },
+    {
+      "ab": "Electronics",
+      "key": "electronics",
+      "full": "Electronics",
+      "pub": "MDPI",
+      "q": "Q2",
+      "jif": "2.9",
+      "guide": "https://www.mdpi.com/journal/electronics/instructions",
+      "tpl": "https://www.mdpi.com/authors/layout",
+      "topics": [
+        "codec",
+        "sr"
+      ],
+      "q_verified": true,
+      "jif_year": "2025",
+      "q_cats": [
+        {
+          "cat": "Engineering, Electrical & Electronic",
+          "q": "Q2",
+          "rank": null
+        },
+        {
+          "cat": "Physics, Applied",
+          "q": "Q3",
+          "rank": null
+        },
+        {
+          "cat": "Computer Science, Information Systems",
+          "q": "Q3",
+          "rank": null
+        }
+      ],
+      "q_src": "https://www.mdpi.com/journal/electronics/stats"
+    },
+    {
+      "ab": "Applied Sciences",
+      "key": "applsci",
+      "full": "Applied Sciences",
+      "pub": "MDPI",
+      "q": "Q2",
+      "jif": "2.9",
+      "guide": "https://www.mdpi.com/journal/applsci/instructions",
+      "tpl": "https://www.mdpi.com/authors/layout",
+      "topics": [
+        "gs"
+      ],
+      "q_verified": true,
+      "jif_year": "2025",
+      "q_cats": [
+        {
+          "cat": "Engineering, Multidisciplinary",
+          "q": "Q2",
+          "rank": null
+        },
+        {
+          "cat": "Physics, Applied",
+          "q": "Q3",
+          "rank": null
+        },
+        {
+          "cat": "Chemistry, Multidisciplinary",
+          "q": "Q3",
+          "rank": null
+        },
+        {
+          "cat": "Materials Science, Multidisciplinary",
+          "q": "Q3",
+          "rank": null
+        }
+      ],
+      "q_src": "https://www.mdpi.com/journal/applsci/stats"
+    },
+    {
+      "ab": "J. Imaging",
+      "key": "jimaging",
+      "full": "Journal of Imaging",
+      "pub": "MDPI",
+      "q": "Q2",
+      "jif": "3.8",
+      "guide": "https://www.mdpi.com/journal/jimaging/instructions",
+      "tpl": "https://www.mdpi.com/authors/layout",
+      "topics": [
+        "gs",
+        "sr"
+      ],
+      "q_verified": true,
+      "jif_year": "2025",
+      "q_cats": [
+        {
+          "cat": "Imaging Science & Photographic Technology",
+          "q": "Q2",
+          "rank": null
+        }
+      ],
+      "q_src": "https://www.mdpi.com/journal/jimaging/stats"
+    },
+    {
+      "ab": "SPL",
+      "key": "spl",
+      "full": "IEEE Signal Processing Letters",
+      "pub": "IEEE Signal Processing Society",
+      "jif": "3.6",
+      "jif_year": "2025",
+      "guide": "https://signalprocessingsociety.org/publications-resources/information-authors",
+      "tpl": "https://template-selector.ieee.org/",
+      "q_cats": [],
+      "q": null,
+      "q_verified": false,
+      "topics": [
+        "sr",
+        "codec"
+      ]
+    },
+    {
+      "ab": "TCI",
+      "key": "tci",
+      "full": "IEEE Transactions on Computational Imaging",
+      "pub": "IEEE Signal Processing Society",
+      "jif": "4.7",
+      "jif_year": "2025",
+      "guide": "https://signalprocessingsociety.org/publications-resources/information-authors",
+      "tpl": "https://template-selector.ieee.org/",
+      "q_cats": [],
+      "q": null,
+      "q_verified": false,
+      "topics": [
+        "gs",
+        "sr"
+      ]
+    },
+    {
+      "ab": "TBC",
+      "key": "tbc",
+      "full": "IEEE Transactions on Broadcasting",
+      "pub": "IEEE Broadcast Technology Society",
+      "jif": "5.9",
+      "jif_year": "2025",
+      "guide": "https://bts.ieee.org/publications/ieee-transactions-on-broadcasting/information-for-authors.html",
+      "tpl": "https://template-selector.ieee.org/",
+      "q_cats": [],
+      "q": null,
+      "q_verified": false,
+      "topics": [
+        "codec"
+      ]
+    },
+    {
+      "ab": "JVCIR",
+      "key": "jvcir",
+      "full": "Journal of Visual Communication and Image Representation",
+      "pub": "Elsevier",
+      "jif": "2.8",
+      "guide": "https://www.sciencedirect.com/journal/journal-of-visual-communication-and-image-representation/publish/guide-for-authors",
+      "tpl": "https://www.elsevier.com/researcher/author/policies-and-guidelines/latex-instructions",
+      "q_cats": [],
+      "q": null,
+      "q_verified": false,
+      "topics": [
+        "codec",
+        "sr"
+      ],
+      "jif_year": null
+    },
+    {
+      "ab": "C&G",
+      "key": "cag",
+      "full": "Computers & Graphics",
+      "pub": "Elsevier",
+      "jif": "2.7",
+      "guide": "https://www.sciencedirect.com/journal/computers-and-graphics/publish/guide-for-authors",
+      "tpl": "https://www.elsevier.com/researcher/author/policies-and-guidelines/latex-instructions",
+      "q_cats": [],
+      "q": null,
+      "q_verified": false,
+      "topics": [
+        "gs"
+      ],
+      "jif_year": null
+    },
+    {
+      "ab": "Visual Computer",
+      "key": "tvc",
+      "full": "The Visual Computer",
+      "pub": "Springer",
+      "jif": "3.4",
+      "jif_year": "2025",
+      "guide": "https://link.springer.com/journal/371/submission-guidelines",
+      "tpl": "https://www.springernature.com/gp/authors/campaigns/latex-author-support",
+      "q_cats": [],
+      "q": null,
+      "q_verified": false,
+      "topics": [
+        "gs"
+      ]
+    },
+    {
+      "ab": "CVM",
+      "key": "cvm",
+      "full": "Computational Visual Media",
+      "pub": "Tsinghua Univ. Press (SciOpen)",
+      "jif": "8.3",
+      "jif_year": "2025",
+      "guide": "https://www.sciopen.com/journal/join_journal/submission_guidelines?id=1396733275645935617&issn=2096-0433",
+      "tpl": "https://www.sciopen.com/journal/join_journal/submission_guidelines?id=1396733275645935617&issn=2096-0433#a1",
+      "q_cats": [],
+      "q": null,
+      "q_verified": false,
+      "topics": [
+        "gs"
+      ]
+    },
+    {
+      "ab": "Displays",
+      "key": "displays",
+      "full": "Displays",
+      "pub": "Elsevier",
+      "jif": "3.9",
+      "guide": "https://www.sciencedirect.com/journal/displays/publish/guide-for-authors",
+      "tpl": "https://www.elsevier.com/researcher/author/policies-and-guidelines/latex-instructions",
+      "q_cats": [],
+      "q": null,
+      "q_verified": false,
+      "topics": [
+        "gs",
+        "codec"
+      ],
+      "jif_year": null
+    },
+    {
+      "ab": "IVC",
+      "key": "ivc",
+      "full": "Image and Vision Computing",
+      "pub": "Elsevier",
+      "jif": "5.0",
+      "guide": "https://www.sciencedirect.com/journal/image-and-vision-computing/publish/guide-for-authors",
+      "tpl": "https://www.elsevier.com/researcher/author/policies-and-guidelines/latex-instructions",
+      "q_cats": [],
+      "q": null,
+      "q_verified": false,
+      "topics": [
+        "gs",
+        "sr"
+      ],
+      "jif_year": null
+    },
+    {
+      "ab": "Information",
+      "key": "information",
+      "full": "Information",
+      "pub": "MDPI",
+      "jif": "4.3",
+      "jif_year": "2025",
+      "guide": "https://www.mdpi.com/journal/information/instructions",
+      "tpl": "https://www.mdpi.com/authors/layout",
+      "q_cats": [
+        {
+          "cat": "Computer Science, Information Systems",
+          "q": "Q2",
+          "rank": null
+        }
+      ],
+      "q_src": "https://www.mdpi.com/journal/information/stats",
+      "q": "Q2",
+      "q_verified": true,
+      "topics": [
+        "gs",
+        "codec"
+      ]
+    },
+    {
+      "ab": "OJSP",
+      "key": "ojsp",
+      "full": "IEEE Open Journal of Signal Processing",
+      "pub": "IEEE Signal Processing Society",
+      "jif": "2.6",
+      "jif_year": "2025",
+      "guide": "https://signalprocessingsociety.org/publications-resources/information-authors",
+      "tpl": "https://template-selector.ieee.org/",
+      "q_cats": [],
+      "q": null,
+      "q_verified": false,
+      "topics": [
+        "codec",
+        "sr"
+      ]
+    }
+  ]
+}
