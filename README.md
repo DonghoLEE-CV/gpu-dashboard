@@ -85,6 +85,9 @@ Repository > Settings > Pages:
   - 2026-11-16: WACV·BMVC·ACCV·NTIRE·Eurographics·PG·EGSR·IEEE VR·ISMAR·ICASSP·ICIP·ICME·ACM MM·DCC·PCS·VCIP 추가
 - 스페셜 이슈 데이터: `data/special_issues.json`
   - IEEE SPS 공식 마감 페이지를 **매주 월요일** Actions(`calendar-sync.yml`)가 자동 수집
+- 학회 메타데이터: `data/venues.json` — "학회 정리" 화면용(주제 gs·sr·codec·ml, CCF/CORE 등급은 ccf-deadlines 기준, 주기, 메모). `name`은 conferences.json의 `venue`와 같아야 한다.
+- 저널 목록: `data/journals.json` — "저널 양식" 화면용. 분위는 JCR(Clarivate)만 쓰고 여러 카테고리면 가장 높은 분위(`q`)와 카테고리별 분위(`q_cats`)를 함께 적는다. 공식 출처로 확인 못 한 분위는 `q_verified:false`(화면에 `Q1?`). index.html의 `JR_FALLBACK`은 이 파일의 사본이다.
+- 정기 갱신: 매월 1·15일 Claude 예약 작업이 학회·스페셜 이슈를 공식 출처로 확인해 커밋한다(저널 IF·분위는 JCR 새 판 이후 7~9월에만).
   - TCSVT·MDPI 등 자동 수집이 안 되는 저널은 `"source": "manual"`로 직접 추가 (자동 갱신에서 보존됨), 조사한 날짜는 `manual_checked`에 기록
 - 검증: 같은 워크플로가 [ccf-deadlines](https://github.com/ccfddl/ccf-deadlines)와 대조해 불일치 시 `cal-sync` 라벨 Issue를 자동 생성 → 공식 사이트 확인 후 수동 반영
 - 스케줄 관리 탭 캘린더에도 학회·스페셜 이슈 마감이 뱃지로 표시되고, 마감 30일 이내 항목은 상단 배너에 노출
