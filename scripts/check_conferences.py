@@ -30,8 +30,22 @@ VENUE_IDS = {
     "ICLR": ["iclr"],
     "AAAI": ["aaai"],
     "3DV": ["3dv", "threedv"],
-    "SIGGRAPH": ["siggraph"],
-    "SIGGRAPH Asia": ["siggraphasia", "siggraph-asia"],
+    "SIGGRAPH": ["sig", "siggraph"],          # ccfddl 파일명은 sig.yml / siga.yml
+    "SIGGRAPH Asia": ["siga", "siggraphasia", "siggraph-asia"],
+    # 3DGS·4DGS·SR·비디오 코딩 관련 학회 (2026-11-16 추가)
+    "WACV": ["wacv"],
+    "BMVC": ["bmvc"],
+    "ACCV": ["accv"],
+    "Eurographics": ["eg"],
+    "Pacific Graphics": ["pg"],
+    "EGSR": ["egsr"],
+    "IEEE VR": ["vr"],
+    "ISMAR": ["ismar"],
+    "ICASSP": ["icassp"],
+    "ICIP": ["icip"],
+    "ICME": ["icme"],
+    "ACM MM": ["mm"],
+    "DCC": ["dcc"],
 }
 
 
