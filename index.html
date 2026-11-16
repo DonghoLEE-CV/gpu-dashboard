@@ -122,7 +122,7 @@ body {
 /* ====== Conference Calendar Tab (cc- namespace, reuses .calendar-grid/.cal-cell) ====== */
 .confcal-section { display: none; }
 .confcal-section.active { display: block; }
-#confcalSection { --cc-cv:#6c7aff; --cc-ml:#a78bfa; --cc-gfx:#fb923c; --cc-d3:#22d3ee; }
+#confcalSection { --cc-cv:#6c7aff; --cc-ml:#a78bfa; --cc-gfx:#fb923c; --cc-d3:#22d3ee; --cc-mm:#f472b6; }
 .cc-note { background: var(--card); border:1px solid var(--border); border-left:3px solid var(--yellow);
   border-radius:10px; padding:12px 15px; font-size:13px; color:var(--text-dim); margin-bottom:18px; line-height:1.6; }
 .cc-note b { color:var(--text); }
@@ -146,6 +146,7 @@ body {
 .cc-chip.on.ml { background:rgba(167,139,250,0.18); border-color:var(--cc-ml); color:#ddd0ff; }
 .cc-chip.on.gfx { background:rgba(251,146,60,0.16); border-color:var(--cc-gfx); color:#ffd6b3; }
 .cc-chip.on.d3 { background:rgba(34,211,238,0.16); border-color:var(--cc-d3); color:#b3eef7; }
+.cc-chip.on.mm { background:rgba(244,114,182,0.16); border-color:var(--cc-mm); color:#fbcfe8; }
 .cc-chip.on.st { background:var(--card-hover); border-color:var(--accent); color:var(--text); }
 .cal-event.cc-passed { opacity:0.4; }
 .cal-event.cc-proj { border-left-style:dashed !important; }
@@ -166,7 +167,9 @@ table.cc-list tr.cc-passrow { opacity:0.5; }
 .cc-vtag { display:inline-block; font-size:11px; padding:2px 8px; border-radius:6px; margin-left:8px; font-weight:600; }
 .cc-vtag.cv{ background:rgba(108,122,255,0.16); color:var(--cc-cv); } .cc-vtag.ml{ background:rgba(167,139,250,0.18); color:var(--cc-ml); }
 .cc-vtag.gfx{ background:rgba(251,146,60,0.16); color:var(--cc-gfx); } .cc-vtag.d3{ background:rgba(34,211,238,0.16); color:var(--cc-d3); }
+.cc-vtag.mm{ background:rgba(244,114,182,0.16); color:var(--cc-mm); }
 .cc-sub { color:var(--text-dim); font-size:12px; margin-top:3px; }
+.cc-topic { color:#a78bfa; font-size:11.5px; margin-top:3px; }
 .cc-badge { display:inline-block; font-size:11px; font-weight:700; padding:3px 10px; border-radius:999px; }
 .cc-badge.passed { background:rgba(90,103,114,0.18); color:#8b95a3; border:1px solid var(--border); }
 .cc-badge.upcoming { background:rgba(52,211,153,0.14); color:var(--green); border:1px solid rgba(52,211,153,0.4); }
@@ -672,7 +675,7 @@ table.cc-list tr.cc-passrow { opacity:0.5; }
   <!-- ====== Conference Calendar Tab ====== -->
   <div class="confcal-section" id="confcalSection">
     <div class="cc-note">
-      ⚠ <b>확정 vs 추정</b> — 학회는 보통 6~12개월 전에만 날짜를 공식 공지한다. 2026 및 2027 일부는 <b>공식 확정값</b>, 그 이후·미공지 항목은 <span class="est">추정값</span>(직전 사이클 패턴 투영, 비공식)이며 점선·기울임으로 표시한다. <b>ICCV=홀수해 / ECCV=짝수해</b>만 존재. 투고 전 공식 사이트 재확인 필수.
+      ⚠ <b>확정 vs 추정</b> — 학회는 보통 6~12개월 전에만 날짜를 공식 공지한다. 2026 및 2027 일부는 <b>공식 확정값</b>, 그 이후·미공지 항목은 <span class="est">추정값</span>(직전 사이클 패턴 투영, 비공식)이며 점선·기울임으로 표시한다. <b>ICCV=홀수해 / ECCV=짝수해</b>, <b>ACCV=짝수해</b>만 존재. 학회명 아래 보라색 글씨는 3DGS·4DGS·SR·비디오 코딩 관점의 관련 주제이고, 항목을 누르면 공식 사이트 링크가 나온다. 투고 전 공식 사이트 재확인 필수.
     </div>
 
     <div class="cc-bar">
@@ -690,6 +693,7 @@ table.cc-list tr.cc-passrow { opacity:0.5; }
       <span class="cc-chip on ml" data-cat="ml">ML</span>
       <span class="cc-chip on gfx" data-cat="gfx">Graphics</span>
       <span class="cc-chip on d3" data-cat="d3">3D</span>
+      <span class="cc-chip on mm" data-cat="mm">Image·Video/Coding</span>
       <span class="cc-lbl" style="margin-left:8px">상태</span>
       <span class="cc-chip on st" data-st="passed">지난</span>
       <span class="cc-chip on st" data-st="upcoming">남음</span>
@@ -1666,54 +1670,87 @@ if (sessionStorage.getItem('ispl_dash_auth') === 'true') {
 // 아래 배열은 fetch 실패 시(로컬 file:// 미리보기 등) fallback 전용 — 유지보수하지 않음
 // ============================================================
 const CC_FALLBACK = [
-  {venue:"AAAI", type:"ml", year:2026, ddl:"2025-08-15", abs:"2025-08-08", conf:"2026.1", loc:"Singapore", cfd:"confirmed"},
-  {venue:"3DV", type:"d3", year:2026, ddl:"2025-08-18", abs:"2025-08-21 (supp)", conf:"2026.3.20–23", loc:"Vancouver, CA", cfd:"confirmed"},
-  {venue:"ICLR", type:"ml", year:2026, ddl:"2025-09-24", abs:"—", conf:"2026.4", loc:"Rio, BR", cfd:"confirmed"},
-  {venue:"CVPR", type:"cv", year:2026, ddl:"2025-11-14", abs:"2025-11-07", conf:"2026.6.3–7", loc:"Denver, US", cfd:"confirmed"},
-  {venue:"SIGGRAPH", type:"gfx", year:2026, ddl:"2026-01-22", abs:"form 2026-01-15", conf:"2026.7.19–23", loc:"Los Angeles, US", cfd:"confirmed"},
-  {venue:"ICML", type:"ml", year:2026, ddl:"2026-01-28", abs:"2026-01-22", conf:"2026.7.6–11", loc:"Seoul, KR", cfd:"confirmed"},
-  {venue:"ECCV", type:"cv", year:2026, ddl:"2026-03-06", abs:"~2026-02-27", conf:"2026.9.8–12", loc:"Malmö, SE", cfd:"confirmed"},
-  {venue:"NeurIPS", type:"ml", year:2026, ddl:"2026-05-06", abs:"2026-05-04", conf:"2026.12.6–13", loc:"Sydney, AU · Atlanta · Paris", cfd:"confirmed"},
-  {venue:"SIGGRAPH Asia", type:"gfx", year:2026, ddl:"2026-05-12", abs:"stage-1 2026-05-05", conf:"2026.12.1–4", loc:"Kuala Lumpur, MY", cfd:"confirmed"},
-  {venue:"AAAI", type:"ml", year:2027, ddl:"2026-07-28", abs:"2026-07-21", conf:"2027.2.16–23", loc:"Montréal, CA", cfd:"confirmed"},
-  {venue:"3DV", type:"d3", year:2027, ddl:"2026-08-28", abs:"2026-09-02 (supp)", conf:"2027.4.6–9", loc:"Thessaloniki, GR", cfd:"confirmed"},
-  {venue:"ICLR", type:"ml", year:2027, ddl:"2026-09-25", abs:"2026-09-18", conf:"2027.4.26–30", loc:"West Coast NA (TBA)", cfd:"confirmed"},
-  {venue:"CVPR", type:"cv", year:2027, ddl:"2026-11-16", abs:"2026-11-10 (등록) · supp 11-23", conf:"2027.6.20–24", loc:"Seattle, US", cfd:"confirmed", confOK:true},
-  {venue:"SIGGRAPH", type:"gfx", year:2027, ddl:"2027-01-21", abs:"form ~1월 중순", conf:"2027.8.8–12", loc:"Anaheim, US", cfd:"projected", confOK:true},
-  {venue:"ICML", type:"ml", year:2027, ddl:"2027-01-22", abs:"~2027-01-16", conf:"2027.7", loc:"South America (TBA)", cfd:"projected"},
-  {venue:"ICCV", type:"cv", year:2027, ddl:"2027-03-08", abs:"~2027-03-01", conf:"2027.10.2–8", loc:"Hong Kong", cfd:"projected", confOK:true},
-  {venue:"SIGGRAPH Asia", type:"gfx", year:2027, ddl:"2027-05-11", abs:"stage-1 ~5월 초", conf:"2027.11.30–12.3", loc:"Tokyo, JP", cfd:"projected"},
-  {venue:"NeurIPS", type:"ml", year:2027, ddl:"2027-05-12", abs:"~5월 초", conf:"2027.12", loc:"Europe (TBA)", cfd:"projected"},
-  {venue:"AAAI", type:"ml", year:2028, ddl:"2027-07-28", abs:"~7월 중순", conf:"2028.2", loc:"TBD", cfd:"projected"},
-  {venue:"3DV", type:"d3", year:2028, ddl:"2027-08-18", abs:"~8월 중순", conf:"2028.3", loc:"TBD", cfd:"projected"},
-  {venue:"ICLR", type:"ml", year:2028, ddl:"2027-09-24", abs:"—", conf:"2028.4", loc:"TBD", cfd:"projected"},
-  {venue:"CVPR", type:"cv", year:2028, ddl:"2027-11-12", abs:"~11월 초", conf:"2028.6", loc:"TBD", cfd:"projected"},
-  {venue:"SIGGRAPH", type:"gfx", year:2028, ddl:"2028-01-20", abs:"form ~1월 중순", conf:"2028.8", loc:"TBD", cfd:"projected"},
-  {venue:"ICML", type:"ml", year:2028, ddl:"2028-01-28", abs:"~1월말", conf:"2028.7", loc:"Eastern US (TBA)", cfd:"projected"},
-  {venue:"ECCV", type:"cv", year:2028, ddl:"2028-03-06", abs:"~2월말", conf:"2028.9", loc:"TBD", cfd:"projected"},
-  {venue:"NeurIPS", type:"ml", year:2028, ddl:"2028-05-10", abs:"~5월 초", conf:"2028.12", loc:"Western US (TBA)", cfd:"projected"},
-  {venue:"SIGGRAPH Asia", type:"gfx", year:2028, ddl:"2028-05-10", abs:"stage-1 ~5월 초", conf:"2028.12", loc:"TBD", cfd:"projected"},
-  {venue:"AAAI", type:"ml", year:2029, ddl:"2028-07-28", abs:"~7월 중순", conf:"2029.2", loc:"TBD", cfd:"projected"},
-  {venue:"3DV", type:"d3", year:2029, ddl:"2028-08-18", abs:"~8월 중순", conf:"2029.3", loc:"TBD", cfd:"projected"},
-  {venue:"ICLR", type:"ml", year:2029, ddl:"2028-09-24", abs:"—", conf:"2029.4", loc:"TBD", cfd:"projected"},
-  {venue:"CVPR", type:"cv", year:2029, ddl:"2028-11-12", abs:"~11월 초", conf:"2029.6", loc:"TBD", cfd:"projected"},
-  {venue:"SIGGRAPH", type:"gfx", year:2029, ddl:"2029-01-18", abs:"form ~1월 중순", conf:"2029.8", loc:"TBD", cfd:"projected"},
-  {venue:"ICML", type:"ml", year:2029, ddl:"2029-01-26", abs:"~1월말", conf:"2029.7", loc:"TBD", cfd:"projected"},
-  {venue:"ICCV", type:"cv", year:2029, ddl:"2029-03-07", abs:"~3월 초", conf:"2029.10", loc:"TBD", cfd:"projected"},
-  {venue:"NeurIPS", type:"ml", year:2029, ddl:"2029-05-09", abs:"~5월 초", conf:"2029.12", loc:"TBD", cfd:"projected"},
-  {venue:"SIGGRAPH Asia", type:"gfx", year:2029, ddl:"2029-05-09", abs:"stage-1 ~5월 초", conf:"2029.12", loc:"TBD", cfd:"projected"},
+  {venue:"AAAI", type:"ml", year:2026, ddl:"2025-08-15", abs:"2025-08-08", conf:"2026.1", loc:"Singapore", cfd:"confirmed", topics:"AI 일반 (SR·3D 일부)"},
+  {venue:"3DV", type:"d3", year:2026, ddl:"2025-08-18", abs:"2025-08-21 (supp)", conf:"2026.3.20–23", loc:"Vancouver, CA", cfd:"confirmed", topics:"3DGS·4DGS·재구성"},
+  {venue:"ICLR", type:"ml", year:2026, ddl:"2025-09-24", abs:"—", conf:"2026.4", loc:"Rio, BR", cfd:"confirmed", topics:"ML 일반 (3D·생성 일부)"},
+  {venue:"CVPR", type:"cv", year:2026, ddl:"2025-11-14", abs:"2025-11-07", conf:"2026.6.3–7", loc:"Denver, US", cfd:"confirmed", topics:"3DGS·4DGS·SR·Codec"},
+  {venue:"SIGGRAPH", type:"gfx", year:2026, ddl:"2026-01-22", abs:"form 2026-01-15", conf:"2026.7.19–23", loc:"Los Angeles, US", cfd:"confirmed", topics:"3DGS·렌더링·AA"},
+  {venue:"ICML", type:"ml", year:2026, ddl:"2026-01-28", abs:"2026-01-22", conf:"2026.7.6–11", loc:"Seoul, KR", cfd:"confirmed", topics:"ML 일반"},
+  {venue:"ICIP", type:"mm", year:2026, ddl:"2026-02-04", abs:"—", conf:"2026.9.14–16", loc:"Tampere, FI", cfd:"confirmed", topics:"SR·Codec·3DGS 압축", link:"https://2026.ieeeicip.org/"},
+  {venue:"ECCV", type:"cv", year:2026, ddl:"2026-03-06", abs:"~2026-02-27", conf:"2026.9.8–12", loc:"Malmö, SE", cfd:"confirmed", topics:"3DGS·4DGS·SR·Codec"},
+  {venue:"NTIRE (CVPR WS)", type:"cv", year:2026, ddl:"2026-03-10", abs:"challenge 2026-03-24", conf:"2026.6.3–4", loc:"Denver, US", cfd:"confirmed", topics:"SR·복원 챌린지", link:"https://www.cvlai.net/ntire/2026/"},
+  {venue:"ISMAR", type:"gfx", year:2026, ddl:"2026-03-16", abs:"2026-03-09", conf:"2026.10.5–9", loc:"Bari, IT", cfd:"confirmed", topics:"3DGS 실시간·XR (TVCG 트랙)", link:"https://www.ieeeismar.net/2026/"},
+  {venue:"ACM MM", type:"mm", year:2026, ddl:"2026-04-01", abs:"2026-03-25", conf:"2026.11.10–14", loc:"Rio de Janeiro, BR", cfd:"confirmed", topics:"Codec·3DGS 스트리밍·SR", link:"https://2026.acmmm.org/"},
+  {venue:"EGSR", type:"gfx", year:2026, ddl:"2026-04-15", abs:"2026-04-08", conf:"2026.7.1–3", loc:"Bordeaux, FR", cfd:"confirmed", topics:"렌더링·AA", link:"https://egsr2026.inria.fr/"},
+  {venue:"NeurIPS", type:"ml", year:2026, ddl:"2026-05-06", abs:"2026-05-04", conf:"2026.12.6–13", loc:"Sydney, AU · Atlanta · Paris", cfd:"confirmed", topics:"ML 일반 (생성·3D 일부)"},
+  {venue:"SIGGRAPH Asia", type:"gfx", year:2026, ddl:"2026-05-12", abs:"stage-1 2026-05-05", conf:"2026.12.1–4", loc:"Kuala Lumpur, MY", cfd:"confirmed", topics:"3DGS·렌더링·AA"},
+  {venue:"BMVC", type:"cv", year:2026, ddl:"2026-05-29", abs:"2026-05-22", conf:"2026.11.23–26", loc:"Lancaster, UK", cfd:"confirmed", topics:"SR·복원·3D", link:"https://bmvc2026.bmva.org/calls/call-for-papers/"},
+  {venue:"Pacific Graphics", type:"gfx", year:2026, ddl:"2026-06-08", abs:"2026-06-01", conf:"2026.10.6–9", loc:"Singapore", cfd:"confirmed", topics:"3DGS·렌더링", link:"https://pacificgraphics2026.github.io/cfp.html"},
+  {venue:"VCIP", type:"mm", year:2026, ddl:"2026-07-03", abs:"—", conf:"2026.12.13–16", loc:"Singapore", cfd:"confirmed", topics:"비디오 코딩·SR", link:"https://vcip-2026.org/"},
+  {venue:"ACCV", type:"cv", year:2026, ddl:"2026-07-05", abs:"2026-07-03", conf:"2026.12.16–18", loc:"Osaka, JP", cfd:"confirmed", topics:"SR·복원·3D", link:"https://accv2026.org/"},
+  {venue:"AAAI", type:"ml", year:2027, ddl:"2026-07-28", abs:"2026-07-21", conf:"2027.2.16–23", loc:"Montréal, CA", cfd:"confirmed", link:"https://aaai.org/conference/aaai/aaai-27/", topics:"AI 일반 (SR·3D 일부)"},
+  {venue:"3DV", type:"d3", year:2027, ddl:"2026-08-28", abs:"2026-09-02 (supp)", conf:"2027.4.6–9", loc:"Thessaloniki, GR", cfd:"confirmed", link:"https://3dvconf.github.io/2027/", topics:"3DGS·4DGS·재구성"},
+  {venue:"WACV", type:"cv", year:2027, ddl:"2026-08-28", abs:"R1 2026-06-26 · R2 등록 08-21", conf:"2027.1.4–8", loc:"Orlando, US", cfd:"confirmed", topics:"SR·복원·3D", link:"https://wacv.thecvf.com/Conferences/2027/CallForPapers"},
+  {venue:"IEEE VR", type:"gfx", year:2027, ddl:"2026-08-31", abs:"2026-08-24", conf:"2027.2.27–3.3", loc:"Melbourne, AU", cfd:"confirmed", topics:"3DGS 실시간·XR", link:"https://ieeevr.org/2027/"},
+  {venue:"ICASSP", type:"mm", year:2027, ddl:"2026-09-23", abs:"—", conf:"2027.5.16–21", loc:"Toronto, CA", cfd:"confirmed", topics:"SR·Codec·3DGS 압축", link:"https://2027.ieeeicassp.org/important-dates/"},
+  {venue:"ICLR", type:"ml", year:2027, ddl:"2026-09-25", abs:"2026-09-18", conf:"2027.4.26–30", loc:"San Francisco, US", cfd:"confirmed", link:"https://iclr.cc/Conferences/2027/Dates", topics:"ML 일반 (3D·생성 일부)"},
+  {venue:"Eurographics", type:"gfx", year:2027, ddl:"2026-10-02", abs:"2026-09-26", conf:"2027.5.10–14", loc:"Lucca, IT", cfd:"confirmed", confOK:true, topics:"3DGS·렌더링·AA", link:"https://eg2027.isti.cnr.it/"},
+  {venue:"DCC", type:"mm", year:2027, ddl:"2026-10-09", abs:"—", conf:"2027.3.23–26", loc:"Snowbird, US", cfd:"confirmed", topics:"압축 (학습 코덱·3DGS 압축)", link:"https://datacompressionconference.org/"},
+  {venue:"CVPR", type:"cv", year:2027, ddl:"2026-11-16", abs:"2026-11-10 (등록) · supp 11-23", conf:"2027.6.20–25", loc:"Seattle, US", cfd:"confirmed", confOK:true, link:"https://cvpr.thecvf.com/Conferences/2027/Dates", topics:"3DGS·4DGS·SR·Codec"},
+  {venue:"ICME", type:"mm", year:2027, ddl:"2026-12-30", abs:"—", conf:"2027.7.13–17", loc:"Xiamen, CN", cfd:"confirmed", topics:"Codec·3DGS 스트리밍·SR", link:"https://2027.ieeeicme.org/"},
+  {venue:"ICML", type:"ml", year:2027, ddl:"2027-01-22", abs:"2027-01-14", conf:"2027.7.31–8.6", loc:"Rio de Janeiro, BR", cfd:"confirmed", link:"https://icml.cc/Conferences/2027", topics:"ML 일반"},
+  {venue:"PCS", type:"mm", year:2027, ddl:"2027-01-26", abs:"—", conf:"2027.6.7–10", loc:"Mexico City, MX", cfd:"confirmed", confOK:true, topics:"비디오 코딩·학습 코덱", link:"https://warwick.ac.uk/fac/sci/dcs/pcs2027/"},
+  {venue:"SIGGRAPH", type:"gfx", year:2027, ddl:"2027-01-28", abs:"form ~2027-01-21", conf:"2027.8.8–12", loc:"Anaheim, US", cfd:"projected", confOK:true, link:"https://s2027.siggraph.org/submit-to-siggraph/", topics:"3DGS·렌더링·AA"},
+  {venue:"ICCV", type:"cv", year:2027, ddl:"2027-03-08", abs:"~2027-03-01", conf:"2027.10.3–7", loc:"Hong Kong (HKCEC)", cfd:"projected", confOK:true, link:"https://iccv.thecvf.com/Conferences/2027", topics:"3DGS·4DGS·SR·Codec"},
+  {venue:"NTIRE (CVPR WS)", type:"cv", year:2027, ddl:"2027-03-10", abs:"challenge ~03-24", conf:"2027.6.20–21", loc:"Seattle, US", cfd:"projected", topics:"SR·복원 챌린지"},
+  {venue:"ISMAR", type:"gfx", year:2027, ddl:"2027-03-15", abs:"~2027-03-08", conf:"2027.10", loc:"TBD", cfd:"projected", topics:"3DGS 실시간·XR (TVCG 트랙)"},
+  {venue:"ICIP", type:"mm", year:2027, ddl:"2027-03-31", abs:"—", conf:"2027.11.29–12.3", loc:"Singapore", cfd:"confirmed", confOK:true, topics:"SR·Codec·3DGS 압축", link:"https://2027.ieeeicip.org/call-for-papers/"},
+  {venue:"ACM MM", type:"mm", year:2027, ddl:"2027-04-01", abs:"~2027-03-25", conf:"2027.10–11", loc:"Hong Kong", cfd:"projected", topics:"Codec·3DGS 스트리밍·SR", link:"https://acmmm.org/"},
+  {venue:"EGSR", type:"gfx", year:2027, ddl:"2027-04-14", abs:"~2027-04-07", conf:"2027.7.5–7", loc:"Lugano, CH", cfd:"projected", topics:"렌더링·AA", link:"https://www.egsr2027.usi.ch/"},
+  {venue:"SIGGRAPH Asia", type:"gfx", year:2027, ddl:"2027-05-11", abs:"stage-1 ~5월 초", conf:"2027.11.30–12.3", loc:"Tokyo, JP", cfd:"projected", link:"https://asia.siggraph.org/2026/about-the-event/siggraph-asia-2027/", topics:"3DGS·렌더링·AA"},
+  {venue:"NeurIPS", type:"ml", year:2027, ddl:"2027-05-12", abs:"~5월 초", conf:"2027.12", loc:"Europe (TBA)", cfd:"projected", link:"https://neurips.cc/Conferences/FutureMeetings", topics:"ML 일반 (생성·3D 일부)"},
+  {venue:"BMVC", type:"cv", year:2027, ddl:"2027-05-28", abs:"~2027-05-21", conf:"2027.11", loc:"TBD", cfd:"projected", topics:"SR·복원·3D"},
+  {venue:"Pacific Graphics", type:"gfx", year:2027, ddl:"2027-06-07", abs:"~2027-05-31", conf:"2027.10", loc:"TBD", cfd:"projected", topics:"3DGS·렌더링"},
+  {venue:"VCIP", type:"mm", year:2027, ddl:"2027-06-30", abs:"—", conf:"2027.12", loc:"TBD", cfd:"projected", topics:"비디오 코딩·SR"},
+  {venue:"AAAI", type:"ml", year:2028, ddl:"2027-07-28", abs:"~7월 중순", conf:"2028.2", loc:"TBD", cfd:"projected", topics:"AI 일반 (SR·3D 일부)"},
+  {venue:"3DV", type:"d3", year:2028, ddl:"2027-08-18", abs:"~8월 중순", conf:"2028.3", loc:"TBD", cfd:"projected", topics:"3DGS·4DGS·재구성"},
+  {venue:"WACV", type:"cv", year:2028, ddl:"2027-08-27", abs:"R1 ~2027-06-25", conf:"2028.1", loc:"TBD", cfd:"projected", topics:"SR·복원·3D"},
+  {venue:"IEEE VR", type:"gfx", year:2028, ddl:"2027-08-30", abs:"~2027-08-23", conf:"2028.3", loc:"TBD", cfd:"projected", topics:"3DGS 실시간·XR"},
+  {venue:"ICASSP", type:"mm", year:2028, ddl:"2027-09-22", abs:"—", conf:"2028.5.28–6.2", loc:"Tokyo, JP", cfd:"projected", topics:"SR·Codec·3DGS 압축"},
+  {venue:"ICLR", type:"ml", year:2028, ddl:"2027-09-24", abs:"—", conf:"2028.4", loc:"TBD", cfd:"projected", topics:"ML 일반 (3D·생성 일부)"},
+  {venue:"Eurographics", type:"gfx", year:2028, ddl:"2027-10-01", abs:"~2027-09-24", conf:"2028.5", loc:"TBD", cfd:"projected", topics:"3DGS·렌더링·AA"},
+  {venue:"DCC", type:"mm", year:2028, ddl:"2027-10-08", abs:"—", conf:"2028.3", loc:"Snowbird, US", cfd:"projected", topics:"압축 (학습 코덱·3DGS 압축)"},
+  {venue:"CVPR", type:"cv", year:2028, ddl:"2027-11-12", abs:"~11월 초", conf:"2028.6", loc:"TBD", cfd:"projected", topics:"3DGS·4DGS·SR·Codec"},
+  {venue:"ICME", type:"mm", year:2028, ddl:"2027-12-30", abs:"—", conf:"2028.7", loc:"TBD", cfd:"projected", topics:"Codec·3DGS 스트리밍·SR"},
+  {venue:"SIGGRAPH", type:"gfx", year:2028, ddl:"2028-01-20", abs:"form ~1월 중순", conf:"2028.8", loc:"TBD", cfd:"projected", topics:"3DGS·렌더링·AA"},
+  {venue:"ICML", type:"ml", year:2028, ddl:"2028-01-28", abs:"~1월말", conf:"2028.7", loc:"Eastern US (TBA)", cfd:"projected", topics:"ML 일반"},
+  {venue:"ECCV", type:"cv", year:2028, ddl:"2028-03-06", abs:"~2월말", conf:"2028.9", loc:"TBD", cfd:"projected", topics:"3DGS·4DGS·SR·Codec"},
+  {venue:"NeurIPS", type:"ml", year:2028, ddl:"2028-05-10", abs:"~5월 초", conf:"2028.12", loc:"Western US (TBA)", cfd:"projected", topics:"ML 일반 (생성·3D 일부)"},
+  {venue:"SIGGRAPH Asia", type:"gfx", year:2028, ddl:"2028-05-10", abs:"stage-1 ~5월 초", conf:"2028.12", loc:"TBD", cfd:"projected", topics:"3DGS·렌더링·AA"},
+  {venue:"ACCV", type:"cv", year:2028, ddl:"2028-07-05", abs:"~2028-07-01", conf:"2028.12", loc:"TBD", cfd:"projected", topics:"SR·복원·3D (격년)"},
+  {venue:"AAAI", type:"ml", year:2029, ddl:"2028-07-28", abs:"~7월 중순", conf:"2029.2", loc:"TBD", cfd:"projected", topics:"AI 일반 (SR·3D 일부)"},
+  {venue:"3DV", type:"d3", year:2029, ddl:"2028-08-18", abs:"~8월 중순", conf:"2029.3", loc:"TBD", cfd:"projected", topics:"3DGS·4DGS·재구성"},
+  {venue:"ICLR", type:"ml", year:2029, ddl:"2028-09-24", abs:"—", conf:"2029.4", loc:"TBD", cfd:"projected", topics:"ML 일반 (3D·생성 일부)"},
+  {venue:"CVPR", type:"cv", year:2029, ddl:"2028-11-12", abs:"~11월 초", conf:"2029.6", loc:"TBD", cfd:"projected", topics:"3DGS·4DGS·SR·Codec"},
+  {venue:"SIGGRAPH", type:"gfx", year:2029, ddl:"2029-01-18", abs:"form ~1월 중순", conf:"2029.8", loc:"TBD", cfd:"projected", topics:"3DGS·렌더링·AA"},
+  {venue:"ICML", type:"ml", year:2029, ddl:"2029-01-26", abs:"~1월말", conf:"2029.7", loc:"TBD", cfd:"projected", topics:"ML 일반"},
+  {venue:"ICCV", type:"cv", year:2029, ddl:"2029-03-07", abs:"~3월 초", conf:"2029.10", loc:"TBD", cfd:"projected", topics:"3DGS·4DGS·SR·Codec"},
+  {venue:"NeurIPS", type:"ml", year:2029, ddl:"2029-05-09", abs:"~5월 초", conf:"2029.12", loc:"TBD", cfd:"projected", topics:"ML 일반 (생성·3D 일부)"},
+  {venue:"SIGGRAPH Asia", type:"gfx", year:2029, ddl:"2029-05-09", abs:"stage-1 ~5월 초", conf:"2029.12", loc:"TBD", cfd:"projected", topics:"3DGS·렌더링·AA"},
 ];
 let CC_DATA = [];   // data/conferences.json 로드 후 채워짐 (하단 ccLoadData)
-const CC_TYPEKO = {cv:"Vision", ml:"ML", gfx:"Graphics", d3:"3D"};
-const CC_COL = {cv:"#6c7aff", ml:"#a78bfa", gfx:"#fb923c", d3:"#22d3ee"};
-const CC_BG  = {cv:"rgba(108,122,255,0.14)", ml:"rgba(167,139,250,0.16)", gfx:"rgba(251,146,60,0.14)", d3:"rgba(34,211,238,0.14)"};
+const CC_TYPEKO = {cv:"Vision", ml:"ML", gfx:"Graphics", d3:"3D", mm:"Image·Video"};
+const CC_COL = {cv:"#6c7aff", ml:"#a78bfa", gfx:"#fb923c", d3:"#22d3ee", mm:"#f472b6"};
+const CC_BG  = {cv:"rgba(108,122,255,0.14)", ml:"rgba(167,139,250,0.16)", gfx:"rgba(251,146,60,0.14)", d3:"rgba(34,211,238,0.14)", mm:"rgba(244,114,182,0.14)"};
+// templates/conferences/ 에 실제로 zip이 있는 학회만 '⬇ 양식' 링크 표시
+const CC_TPL_CONF = {cvpr:1, iccv:1, eccv:1, "3dv":1, siggraph:1, siggraphasia:1};
 const CC_TODAY = new Date();
 function ccPad(n){ return String(n).padStart(2,"0"); }
 function ccKey(d){ return d.getFullYear()+"-"+ccPad(d.getMonth()+1)+"-"+ccPad(d.getDate()); }
 const CC_TKEY = ccKey(CC_TODAY);
 const CC_MIN_Y=2025, CC_MIN_M=7, CC_MAX_Y=2029, CC_MAX_M=11;
 let ccView = "list";
-const ccCat = {cv:1,ml:1,gfx:1,d3:1}, ccSt = {passed:1,upcoming:1,projected:1};
+const ccCat = {cv:1,ml:1,gfx:1,d3:1,mm:1}, ccSt = {passed:1,upcoming:1,projected:1};
 let ccY, ccM;
 function ccInitFromData(){
   CC_DATA.forEach(function(x,i){ x._i=i; });
@@ -1748,6 +1785,7 @@ function ccBuildYJump(){
 function jrToggle(b){ b.parentNode.classList.toggle("open"); }
 function ccTplLink(kind,name){
   var key=String(name).toLowerCase().replace(/[^a-z0-9]+/g,'');
+  if(kind==="conferences" && !CC_TPL_CONF[key]) return '';
   return '<a class="cc-dl" href="templates/'+kind+'/'+key+'.zip" download title="양식 다운로드: '+name+'" onclick="event.stopPropagation()">⬇ 양식</a>';
 }
 function renderJournalGuides(){
@@ -1863,7 +1901,8 @@ function ccRenderList(){
                 : st==="upcoming"?'<span class="cc-badge upcoming">남음 · D-'+ccDaysLeft(x.ddl)+'</span>'
                 : '<span class="cc-badge projected">추정</span>';
       var confTxt=(x.confOK&&proj)?x.conf+' <span style="color:var(--green)">✓</span>':(proj?'<span class="cc-est">'+x.conf+'</span>':x.conf);
-      tr.innerHTML='<td><span class="cc-venue">'+x.venue+' '+x.year+'</span><span class="cc-vtag '+x.type+'">'+CC_TYPEKO[x.type]+'</span>'+ccTplLink("conferences",x.venue)+'</td>'+
+      tr.innerHTML='<td><span class="cc-venue">'+x.venue+' '+x.year+'</span><span class="cc-vtag '+x.type+'">'+CC_TYPEKO[x.type]+'</span>'+ccTplLink("conferences",x.venue)+
+          (x.topics?'<div class="cc-topic">'+x.topics+'</div>':'')+'</td>'+
         '<td>'+ddlTxt+(x.abs&&x.abs!=="—"?'<div class="cc-sub">abstract: '+x.abs+'</div>':'')+'</td>'+
         '<td>'+badge+'</td>'+
         '<td style="color:var(--text-dim)">'+confTxt+'</td>'+
@@ -1891,6 +1930,8 @@ function ccShowDetail(i){
       '<div class="cc-drow"><span class="cc-dk">Abstract</span><span class="cc-dv">'+x.abs+'</span></div>'+
       '<div class="cc-drow"><span class="cc-dk">개최</span><span class="cc-dv">'+confDisp+'</span></div>'+
       '<div class="cc-drow"><span class="cc-dk">장소</span><span class="cc-dv">'+x.loc+'</span></div>'+
+      (x.topics?'<div class="cc-drow"><span class="cc-dk">관련 주제</span><span class="cc-dv">'+x.topics+'</span></div>':'')+
+      (x.link?'<div class="cc-drow"><span class="cc-dk">공식 사이트</span><span class="cc-dv"><a class="jr-lnk" href="'+x.link+'" target="_blank" rel="noopener">'+x.link.replace(/^https?:\/\//,'').replace(/\/$/,'')+' ↗</a></span></div>':'')+
       '<div class="cc-drow"><span class="cc-dk">신뢰도</span><span class="cc-dv">'+(proj?'<span class="cc-est">추정 — 직전 사이클 패턴 투영(비공식)</span>':'공식 확정값')+'</span></div>'+
     '</div>';
   d.scrollIntoView({behavior:"smooth",block:"nearest"});
@@ -1996,9 +2037,11 @@ function ccRenderSI(){
   if(!wrap) return;
   var items = (SI_DATA.items || []).slice().sort(function(a,b){ return (a.ddl||"9999") < (b.ddl||"9999") ? -1 : 1; });
   var checked = SI_DATA.last_checked ? String(SI_DATA.last_checked).slice(0,10) : null;
+  var mchecked = SI_DATA.manual_checked ? String(SI_DATA.manual_checked).slice(0,10) : null;
   var h = '<div class="cc-note">저널 <b>스페셜 이슈/섹션</b> 공개 모집 현황. IEEE SPS 공식 마감 페이지를 GitHub Actions가 <b>매주 월요일</b> 자동 수집한다' +
     (checked ? ' (마지막 확인: ' + checked + ')' : '') +
-    '. 관련성 낮은 항목은 흐리게 표시. TCSVT·MDPI·Elsevier 계열은 자동 수집 대상이 아니므로 발견 시 <code>data/special_issues.json</code>에 <code>"source":"manual"</code>로 추가.</div>';
+    '. 관련성 낮은 항목은 흐리게 표시. TCSVT·TVCG·IJCV·Elsevier·MDPI 등 자동 수집 대상이 아닌 저널은 3DGS·4DGS·SR·비디오 코딩 관점에서 수동 조사해 <code>"source":"manual"</code>로 등록한다' +
+    (mchecked ? ' (수동 조사: ' + mchecked + ')' : '') + '.</div>';
   if(!items.length){ wrap.innerHTML = h + '<div class="cc-empty">현재 등록된 스페셜 이슈가 없습니다.</div>'; return; }
   h += '<div class="si-grid">';
   items.forEach(function(s){
