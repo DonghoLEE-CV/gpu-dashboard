@@ -1,0 +1,361 @@
+{
+  "updated": "2026-11-16",
+  "rank_source": "https://github.com/ccfddl/ccf-deadlines",
+  "topics": [
+    {
+      "key": "gs",
+      "label": "3DGS·4DGS·뉴럴 렌더링"
+    },
+    {
+      "key": "sr",
+      "label": "초해상도(SR)·복원"
+    },
+    {
+      "key": "codec",
+      "label": "비디오 코딩·압축"
+    },
+    {
+      "key": "ml",
+      "label": "ML 일반"
+    }
+  ],
+  "venues": [
+    {
+      "name": "CVPR",
+      "full": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+      "type": "cv",
+      "ccf": "A",
+      "core": "A*",
+      "cycle": "매년",
+      "topics": [
+        "gs",
+        "sr",
+        "codec"
+      ],
+      "home": "https://cvpr.thecvf.com/"
+    },
+    {
+      "name": "ICCV",
+      "full": "IEEE/CVF International Conference on Computer Vision",
+      "type": "cv",
+      "ccf": "A",
+      "core": "A*",
+      "cycle": "격년 (홀수해)",
+      "topics": [
+        "gs",
+        "sr",
+        "codec"
+      ],
+      "home": "https://iccv.thecvf.com/"
+    },
+    {
+      "name": "ECCV",
+      "full": "European Conference on Computer Vision",
+      "type": "cv",
+      "ccf": "B",
+      "core": "A*",
+      "cycle": "격년 (짝수해)",
+      "topics": [
+        "gs",
+        "sr",
+        "codec"
+      ],
+      "home": "https://eccv.ecva.net/"
+    },
+    {
+      "name": "3DV",
+      "full": "International Conference on 3D Vision",
+      "type": "d3",
+      "ccf": "C",
+      "core": null,
+      "cycle": "매년",
+      "topics": [
+        "gs"
+      ],
+      "home": "https://3dvconf.github.io/"
+    },
+    {
+      "name": "SIGGRAPH",
+      "full": "ACM SIGGRAPH Conference",
+      "type": "gfx",
+      "ccf": "A",
+      "core": "A*",
+      "cycle": "매년",
+      "topics": [
+        "gs"
+      ],
+      "home": "https://www.siggraph.org/",
+      "note": "Journal 트랙 논문은 ACM TOG 게재"
+    },
+    {
+      "name": "SIGGRAPH Asia",
+      "full": "ACM SIGGRAPH Conference in Asia",
+      "type": "gfx",
+      "ccf": null,
+      "core": "A*",
+      "cycle": "매년",
+      "topics": [
+        "gs"
+      ],
+      "home": "https://asia.siggraph.org/",
+      "note": "Journal 트랙 논문은 ACM TOG 게재"
+    },
+    {
+      "name": "Eurographics",
+      "full": "Eurographics Annual Conference",
+      "type": "gfx",
+      "ccf": "B",
+      "core": "B",
+      "cycle": "매년",
+      "topics": [
+        "gs"
+      ],
+      "home": "https://www.eg.org/",
+      "note": "Full paper는 Computer Graphics Forum 게재"
+    },
+    {
+      "name": "Pacific Graphics",
+      "full": "Pacific Conference on Computer Graphics and Applications",
+      "type": "gfx",
+      "ccf": "B",
+      "core": null,
+      "cycle": "매년",
+      "topics": [
+        "gs"
+      ],
+      "home": "https://pacificgraphics2026.github.io/",
+      "note": "Full paper는 Computer Graphics Forum 게재"
+    },
+    {
+      "name": "EGSR",
+      "full": "Eurographics Symposium on Rendering",
+      "type": "gfx",
+      "ccf": "B",
+      "core": null,
+      "cycle": "매년",
+      "topics": [
+        "gs"
+      ],
+      "home": "https://www.eg.org/",
+      "note": "렌더링·안티앨리어싱, CGF 게재"
+    },
+    {
+      "name": "IEEE VR",
+      "full": "IEEE Conference on Virtual Reality and 3D User Interfaces",
+      "type": "gfx",
+      "ccf": "A",
+      "core": "A*",
+      "cycle": "매년",
+      "topics": [
+        "gs"
+      ],
+      "home": "https://ieeevr.org/",
+      "note": "Journal 트랙은 TVCG 게재"
+    },
+    {
+      "name": "ISMAR",
+      "full": "IEEE International Symposium on Mixed and Augmented Reality",
+      "type": "gfx",
+      "ccf": "B",
+      "core": "A*",
+      "cycle": "매년",
+      "topics": [
+        "gs"
+      ],
+      "home": "https://www.ieeeismar.net/",
+      "note": "TVCG 트랙과 컨퍼런스 트랙을 한 번에 투고"
+    },
+    {
+      "name": "WACV",
+      "full": "IEEE/CVF Winter Conference on Applications of Computer Vision",
+      "type": "cv",
+      "ccf": null,
+      "core": "A",
+      "cycle": "매년 (2라운드)",
+      "topics": [
+        "sr",
+        "gs"
+      ],
+      "home": "https://wacv.thecvf.com/",
+      "note": "1라운드 6월·2라운드 8월"
+    },
+    {
+      "name": "BMVC",
+      "full": "British Machine Vision Conference",
+      "type": "cv",
+      "ccf": "C",
+      "core": "A",
+      "cycle": "매년",
+      "topics": [
+        "sr",
+        "gs"
+      ],
+      "home": "https://www.bmva.org/bmvc"
+    },
+    {
+      "name": "ACCV",
+      "full": "Asian Conference on Computer Vision",
+      "type": "cv",
+      "ccf": "C",
+      "core": "B",
+      "cycle": "격년 (짝수해)",
+      "topics": [
+        "sr",
+        "gs"
+      ],
+      "home": "https://accv2026.org/"
+    },
+    {
+      "name": "NTIRE (CVPR WS)",
+      "full": "New Trends in Image Restoration and Enhancement Workshop",
+      "type": "cv",
+      "ccf": null,
+      "core": null,
+      "cycle": "매년 (CVPR 워크숍)",
+      "topics": [
+        "sr"
+      ],
+      "home": "https://www.cvlai.net/ntire/2026/",
+      "note": "SR·복원 챌린지와 챌린지 리포트"
+    },
+    {
+      "name": "ICIP",
+      "full": "IEEE International Conference on Image Processing",
+      "type": "mm",
+      "ccf": "C",
+      "core": "B",
+      "cycle": "매년",
+      "topics": [
+        "sr",
+        "codec"
+      ],
+      "home": "https://2027.ieeeicip.org/"
+    },
+    {
+      "name": "ICASSP",
+      "full": "IEEE International Conference on Acoustics, Speech and Signal Processing",
+      "type": "mm",
+      "ccf": "B",
+      "core": "B",
+      "cycle": "매년",
+      "topics": [
+        "codec",
+        "sr"
+      ],
+      "home": "https://2027.ieeeicassp.org/"
+    },
+    {
+      "name": "ICME",
+      "full": "IEEE International Conference on Multimedia and Expo",
+      "type": "mm",
+      "ccf": "B",
+      "core": "A",
+      "cycle": "매년",
+      "topics": [
+        "codec",
+        "sr"
+      ],
+      "home": "https://2027.ieeeicme.org/"
+    },
+    {
+      "name": "ACM MM",
+      "full": "ACM International Conference on Multimedia",
+      "type": "mm",
+      "ccf": "A",
+      "core": "A*",
+      "cycle": "매년",
+      "topics": [
+        "codec",
+        "gs",
+        "sr"
+      ],
+      "home": "https://acmmm.org/"
+    },
+    {
+      "name": "DCC",
+      "full": "Data Compression Conference",
+      "type": "mm",
+      "ccf": "B",
+      "core": "B",
+      "cycle": "매년",
+      "topics": [
+        "codec"
+      ],
+      "home": "https://datacompressionconference.org/"
+    },
+    {
+      "name": "PCS",
+      "full": "Picture Coding Symposium",
+      "type": "mm",
+      "ccf": null,
+      "core": null,
+      "cycle": "매년",
+      "topics": [
+        "codec"
+      ],
+      "home": "https://warwick.ac.uk/fac/sci/dcs/pcs2027/"
+    },
+    {
+      "name": "VCIP",
+      "full": "IEEE International Conference on Visual Communications and Image Processing",
+      "type": "mm",
+      "ccf": null,
+      "core": null,
+      "cycle": "매년",
+      "topics": [
+        "codec"
+      ],
+      "home": "https://vcip-2026.org/"
+    },
+    {
+      "name": "NeurIPS",
+      "full": "Conference on Neural Information Processing Systems",
+      "type": "ml",
+      "ccf": "A",
+      "core": "A*",
+      "cycle": "매년",
+      "topics": [
+        "ml",
+        "gs"
+      ],
+      "home": "https://neurips.cc/"
+    },
+    {
+      "name": "ICLR",
+      "full": "International Conference on Learning Representations",
+      "type": "ml",
+      "ccf": "A",
+      "core": "A*",
+      "cycle": "매년",
+      "topics": [
+        "ml",
+        "gs"
+      ],
+      "home": "https://iclr.cc/"
+    },
+    {
+      "name": "ICML",
+      "full": "International Conference on Machine Learning",
+      "type": "ml",
+      "ccf": "A",
+      "core": "A*",
+      "cycle": "매년",
+      "topics": [
+        "ml"
+      ],
+      "home": "https://icml.cc/"
+    },
+    {
+      "name": "AAAI",
+      "full": "AAAI Conference on Artificial Intelligence",
+      "type": "ml",
+      "ccf": "A",
+      "core": "A*",
+      "cycle": "매년",
+      "topics": [
+        "ml"
+      ],
+      "home": "https://aaai.org/"
+    }
+  ]
+}
