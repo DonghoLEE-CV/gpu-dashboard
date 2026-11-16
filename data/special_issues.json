@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-09T05:40:20Z",
+  "last_checked": "2026-11-16T05:49:19Z",
   "source": "https://signalprocessingsociety.org/publications-resources/special-issue-deadlines",
   "items": [
     {
@@ -86,6 +86,14 @@
       "relevant": false,
       "source": "manual",
       "note": "SR·복원 포함 일반 영상처리"
+    },
+    {
+      "journal": "SPM",
+      "title": "Special Issue on Continual Learning for Evolving Signal Processing Systems",
+      "ddl": "2027-03-01",
+      "url": "https://signalprocessingsociety.org/events/ieee-spm-special-issue-continual-learning-evolving-signal-processing-systems",
+      "relevant": false,
+      "source": "sps-auto"
     },
     {
       "journal": "IVC",
