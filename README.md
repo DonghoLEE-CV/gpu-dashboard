@@ -80,9 +80,12 @@ Repository > Settings > Pages:
 ## 학회 캘린더 · 스페셜 이슈
 
 - 학회 마감 데이터: `data/conferences.json` (index.html의 배열은 fetch 실패 시 fallback 전용)
+  - 분야(`type`): `cv` Vision · `ml` ML · `gfx` Graphics · `d3` 3D · `mm` Image·Video/Coding
+  - 선택 필드: `topics`(3DGS·4DGS·SR·Codec 관점 관련 주제), `link`(공식 사이트), `confOK`(개최 일정만 확정)
+  - 2026-11-16: WACV·BMVC·ACCV·NTIRE·Eurographics·PG·EGSR·IEEE VR·ISMAR·ICASSP·ICIP·ICME·ACM MM·DCC·PCS·VCIP 추가
 - 스페셜 이슈 데이터: `data/special_issues.json`
   - IEEE SPS 공식 마감 페이지를 **매주 월요일** Actions(`calendar-sync.yml`)가 자동 수집
-  - TCSVT·MDPI 등 자동 수집이 안 되는 저널은 `"source": "manual"`로 직접 추가 (자동 갱신에서 보존됨)
+  - TCSVT·MDPI 등 자동 수집이 안 되는 저널은 `"source": "manual"`로 직접 추가 (자동 갱신에서 보존됨), 조사한 날짜는 `manual_checked`에 기록
 - 검증: 같은 워크플로가 [ccf-deadlines](https://github.com/ccfddl/ccf-deadlines)와 대조해 불일치 시 `cal-sync` 라벨 Issue를 자동 생성 → 공식 사이트 확인 후 수동 반영
 - 스케줄 관리 탭 캘린더에도 학회·스페셜 이슈 마감이 뱃지로 표시되고, 마감 30일 이내 항목은 상단 배너에 노출
 
